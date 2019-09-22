@@ -5,7 +5,6 @@ This is an implementation of "Image Projection Network: 3D to 2D Image Segmentat
 # Paper
 
 Image Projection Network: 3D to 2D Image Segmentation in OCTA Images
-
 Mingchao Li, Yerui Chen, Shuo Li, Zexuan Ji, Keren Xie, Songtao Yuan, Qiang Chen
 
 # Requirements
@@ -20,6 +19,7 @@ If success, the result will be find in 'logs/test_result/'.
 # Train for your own data
 
 ## Data storage structure
+
 Place the data as the following structure.(An example in 'dataset/test').
 
 - dataset
@@ -49,18 +49,21 @@ Place the data as the following structure.(An example in 'dataset/test').
     - val(same as train)
 
 ## Train
+
 python train.py
- 
+
 ## Change Parameters
+
 Parameters are set in 'options/'
 The parameter description is in 'param_help.py'
 
 ## Model Saver
+
 The best model is saved in 'logs/best_model/'
 Other models are saved in 'logs/checkpoints/'
 
 ## Result
+
 python test.py.
 The results will be saved in 'logs/test_result'.
-Some examples of our results and corresponding OCTA projection maps are in 'logs/other results/'
-
+Some examples of our results and corresponding OCTA projection maps are in 'logs/other results/'.
