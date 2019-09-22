@@ -5,6 +5,7 @@ This is an implementation of "Image Projection Network: 3D to 2D Image Segmentat
 # Paper
 
 Image Projection Network: 3D to 2D Image Segmentation in OCTA Images
+
 Mingchao Li, Yerui Chen, Shuo Li, Zexuan Ji, Keren Xie, Songtao Yuan, Qiang Chen
 
 # Requirements
@@ -14,6 +15,7 @@ Ubuntu 18.04, Python 3.x, Tensorflow 1.12
 # Test the code
 
 python test.py
+
 If success, the result will be find in 'logs/test_result/'.
 
 # Train for your own data
@@ -55,6 +57,7 @@ python train.py
 ## Change Parameters
 
 Parameters are set in 'options/'
+
 The parameter description is in 'param_help.py'
 
 ## Model Saver
