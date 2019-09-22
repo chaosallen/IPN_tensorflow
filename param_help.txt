@@ -1,0 +1,21 @@
+Modifiable parameters are under 'options/'
+
+train_options
+
+useRestore: whether restore or not
+batch_size: batch size in training stage
+lr: learning rate
+max_iteration: maximum iterations
+print_info_freq: the printing frequency of training acc and dice/the time interval for model preservation
+
+base_options
+
+dataroot: data path
+*gpu_ids: the ids of GPU used
+*data_size: the data size of 3D volume
+*block_size: the size of network input(need to divide data_size)
+*input_n: the number of modalities(image1/image2)
+saveroot: path to save results
+NUM_OF_CLASS: fianl class number for classification
+PLM_num: number of PLM
+layer_num: number of convolution layers in each PLM
