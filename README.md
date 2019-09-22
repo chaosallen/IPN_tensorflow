@@ -1,4 +1,4 @@
-#IPN (Image Projection Network): 3D to 2D Image Segmentation in OCTA images
+# IPN (Image Projection Network): 3D to 2D Image Segmentation in OCTA images
 
 This is an implementation of "Image Projection Network: 3D to 2D Image Segmentation in OCTA Images". IPN is proposed for 3D to 2D segmentation. Our key insight is to build a projection learning module(PLM) which uses a unidirectional pooling layer to conduct effective features selection and dimension reduction concurrently.By combining multiple PLMs, the proposed network can input 3D data and output 2D segmentation results.
 
