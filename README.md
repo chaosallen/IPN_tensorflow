@@ -74,6 +74,5 @@ The results will be saved in 'logs/test_result'.
 
 Some examples of our results and corresponding OCTA projection maps are in 'logs/other results/'.
 
-![blockchain](https://github.com/chaosallen/IPN_master/blob/master/logs/test_results/10201-M-OS-44.bmp)
-
 ![blockchain](https://github.com/chaosallen/IPN_master/blob/master/logs/test_results/10201.bmp)
+![blockchain](https://github.com/chaosallen/IPN_master/blob/master/logs/test_results/10201-M-OS-44.bmp)
