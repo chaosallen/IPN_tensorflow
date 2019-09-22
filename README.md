@@ -21,31 +21,31 @@ If success, the result will be find in 'logs/test_result/'.
 ## Data storage structure
 Place the data as the following structure.(An example in 'dataset/test').
 
--dataset
-    -train
-        -image1(modality 1)
-            -name1
-                -1.bmp
-                -2.bmp
-                -3.bmp
+- dataset
+    - train
+        - image1(modality 1)
+            - name1
+                - 1.bmp
+                - 2.bmp
+                - 3.bmp
                 ...
-            -name2
+            - name2
             ...
-        -image2(modality 1)
-            -name1
-                -1.bmp
-                -2.bmp
-                -3.bmp
+        - image2(modality 1)
+            - name1
+                - 1.bmp
+                - 2.bmp
+                - 3.bmp
                 ...
-            -name2
+            - name2
             ...
         ...
-        -label
-            -name1.bmp
-            -name2.bmp
+        - abel
+            - name1.bmp
+            - name2.bmp
             ...
-    -test(same as train)
-    -val(same as train)
+    - test(same as train)
+    - val(same as train)
 
 ## Train
 python train.py
