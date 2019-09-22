@@ -5,6 +5,7 @@ This is an implementation of "Image Projection Network: 3D to 2D Image Segmentat
 # Paper
 
 Image Projection Network: 3D to 2D Image Segmentation in OCTA Images
+
 Mingchao Li, Yerui Chen, Shuo Li, Zexuan Ji, Keren Xie, Songtao Yuan, Qiang Chen
 
 # Requirements
