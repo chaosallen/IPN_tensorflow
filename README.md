@@ -9,7 +9,7 @@ Mingchao Li, Yerui Chen, Shuo Li, Zexuan Ji, Keren Xie, Songtao Yuan, Qiang Chen
 
 # Requirements
 
-Python 2.7, Tensorflow 1.4.0
+Ubuntu 18.04, Python 3.x, Tensorflow 1.12
 
 # Test the code
 
@@ -40,7 +40,7 @@ Place the data as the following structure.(An example in 'dataset/test').
             - name2
             - ...
         - ...
-        - abel
+        - label
             - name1.bmp
             - name2.bmp
             - ...
