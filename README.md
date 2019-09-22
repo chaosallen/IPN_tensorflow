@@ -2,23 +2,23 @@
 
 This is an implementation of "Image Projection Network: 3D to 2D Image Segmentation in OCTA Images". IPN is proposed for 3D to 2D segmentation. Our key insight is to build a projection learning module(PLM) which uses a unidirectional pooling layer to conduct effective features selection and dimension reduction concurrently.By combining multiple PLMs, the proposed network can input 3D data and output 2D segmentation results.
 
-#Paper
+# Paper
 
 Image Projection Network: 3D to 2D Image Segmentation in OCTA Images
 Mingchao Li, Yerui Chen, Shuo Li, Zexuan Ji, Keren Xie, Songtao Yuan, Qiang Chen
 
-#Requirements
+# Requirements
 
 Python 2.7, Tensorflow 1.4.0
 
-#Test the code
+# Test the code
 
 python test.py
 If success, the result will be find in 'logs/test_result/'.
 
-#Train for your own data
+# Train for your own data
 
-##Data storage structure
+## Data storage structure
 Place the data as the following structure.(An example in 'dataset/test').
 
 -dataset
@@ -47,18 +47,18 @@ Place the data as the following structure.(An example in 'dataset/test').
     -test(same as train)
     -val(same as train)
 
-##Train
+## Train
 python train.py
  
-##Change Parameters
+## Change Parameters
 Parameters are set in 'options/'
 The parameter description is in 'param_help.py'
 
-##Model Saver
+## Model Saver
 The best model is saved in 'logs/best_model/'
 Other models are saved in 'logs/checkpoints/'
 
-##Result
+## Result
 python test.py.
 The results will be saved in 'logs/test_result'.
 Some examples of our results and corresponding OCTA projection maps are in 'logs/other results/'
