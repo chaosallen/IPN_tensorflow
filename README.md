@@ -60,10 +60,13 @@ The parameter description is in 'param_help.py'
 ## Model Saver
 
 The best model is saved in 'logs/best_model/'
+
 Other models are saved in 'logs/checkpoints/'
 
 ## Result
 
 python test.py.
+
 The results will be saved in 'logs/test_result'.
+
 Some examples of our results and corresponding OCTA projection maps are in 'logs/other results/'.
