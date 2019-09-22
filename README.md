@@ -34,7 +34,7 @@ Place the data as the following structure.(An example in 'dataset/test').
                 - ...
             - name2
             - ...
-        - image2(modality 1)
+        - image2(modality 2)
             - name1
                 - 1.bmp
                 - 2.bmp
