@@ -80,15 +80,16 @@ def main(argv=None):
     ##########################################################################
 
     for itr in xrange(o_itr,opt.max_iteration):
-        train_images,train_annotations = train_dataset_reader.read_batch_random_train()
+        train_images,train_annotations = train_dataset_reader.read_batch_normal_train()
         feed_dict_train = {x: train_images, y: train_annotations}
         sess.run(train_op, feed_dict=feed_dict_train)
 
         train_loss = sess.run(loss, feed_dict = feed_dict_train)
         train_loss_sum += train_loss
         train_pred = sess.run([pred_], feed_dict = {x: train_images})
-        train_pred = np.squeeze(train_pred)
-        train_annotations = np.squeeze(train_annotations)
+        train_pred = np.squeeze(train_pred[0],axis=1)
+        train_annotations = np.squeeze(train_annotations,axis=1)
+        train_annotations = np.squeeze(train_annotations,axis=-1)
         for i in range(opt.batch_size):
             train_Dice_sum += utils.cal_Dice(train_pred[i],train_annotations[i])
             train_acc_sum += utils.cal_acc(train_pred[i],train_annotations[i])
@@ -118,8 +119,9 @@ def main(argv=None):
                 val_loss += valid_loss
 
                 valid_pred = sess.run([pred_], feed_dict = {x: valid_images})
-                valid_pred = np.squeeze(valid_pred)
-                valid_annotations = np.squeeze(valid_annotations)
+                valid_pred = np.squeeze(valid_pred[0],axis=1)
+                valid_annotations = np.squeeze(valid_annotations,axis=1)
+                valid_annotations = np.squeeze(valid_annotations,axis=-1)
                 for i in range(opt.batch_size):
                     count += 1
                     t1, t2 = utils.cal_Dice_para(valid_pred[i],valid_annotations[i])
@@ -140,8 +142,9 @@ def main(argv=None):
                 val_loss += valid_loss
 
                 valid_pred = sess.run([pred_], feed_dict = {x: valid_images})
-                valid_pred = np.squeeze(valid_pred)
-                valid_annotations = np.squeeze(valid_annotations)
+                valid_pred = np.squeeze(valid_pred[0],axis=1)
+                valid_annotations = np.squeeze(valid_annotations,axis=1)
+                valid_annotations = np.squeeze(valid_annotations,axis=-1)
                 temp_index += 1
 
 
@@ -170,6 +173,7 @@ def main(argv=None):
                 shutil.copy(os.path.join(model_save_path,'checkpoint'),os.path.join(best_model_save_path,temp,'checkpoint'))
 
                 model_names = natsort.natsorted(os.listdir(best_model_save_path))
+                #print(len(model_names))
                 if len(model_names) == 4:
                     shutil.rmtree(os.path.join(best_model_save_path,model_names[0]))
                 best_valid_dice = m_Dice
