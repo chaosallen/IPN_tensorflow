@@ -35,7 +35,7 @@ def main(argv=None):
     copy_file_suffixs = ['.meta','.index','.data-00000-of-00001']
     x=tf.placeholder(tf.float32, shape=[None, BLOCK_SIZE[0], BLOCK_SIZE[1], BLOCK_SIZE[2], opt.input_nc], name="input_image")
     y=tf.placeholder(tf.int32, shape=[None, 1, BLOCK_SIZE[1], BLOCK_SIZE[2], 1], name="annotation")
-    y_,pred_, variables = model.IPN(x=x,PLM_NUM=opt.PLM_num, LAYER_NUM=opt.layer_num,NUM_OF_CLASS=opt.NUM_OF_CLASS)
+    y_,pred_, variables,sf = model.IPN(x=x,PLM_NUM=opt.PLM_num, LAYER_NUM=opt.layer_num,NUM_OF_CLASS=opt.NUM_OF_CLASS)
     # Loss function
     loss = lossfunc.cross_entropy(y_,y)
 

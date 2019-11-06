@@ -1,5 +1,5 @@
 import tensorflow as tf
-
+import numpy as np
 import utils
 from layers import (weight_variable,bias_variable,conv3d,Unidirectional_pool)
 
@@ -25,8 +25,9 @@ def IPN(x,PLM_NUM=5,filter_size=[3,3,3],LAYER_NUM=3,NUM_OF_CLASS=2,pooling_size=
     variables = []
 
 
-    #features = util.cal_channel_num(PLM_NUM)
-    features = [64,64,64,64,64]
+    #features = utils.cal_channel_num(PLM_NUM)
+    #features = [64,64,64,64,64]
+    features = np.ones(PLM_NUM,dtype='int32')*64
 
     ##################### print model para  #############
     print('')
@@ -80,4 +81,4 @@ def IPN(x,PLM_NUM=5,filter_size=[3,3,3],LAYER_NUM=3,NUM_OF_CLASS=2,pooling_size=
 
     sf = tf.nn.softmax(output)
     pred = tf.argmax(sf, axis=-1, name="prediction")
-    return output,pred,variables
+    return output,pred,variables,sf

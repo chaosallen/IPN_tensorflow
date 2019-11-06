@@ -23,7 +23,7 @@ def main(argv=None):
 
     x=tf.placeholder(tf.float32, shape=[None] + BLOCK_SIZE + [opt.input_nc], name="input_image")
     y=tf.placeholder(tf.int32, shape=[None, 1, BLOCK_SIZE[1], BLOCK_SIZE[2], 1], name="annotation")
-    y_,pred_, variables= model.IPN(x=x,PLM_NUM=opt.PLM_num, LAYER_NUM=opt.layer_num,NUM_OF_CLASS=opt.NUM_OF_CLASS)
+    y_,pred_, variables,sf= model.IPN(x=x,PLM_NUM=opt.PLM_num, LAYER_NUM=opt.layer_num,NUM_OF_CLASS=opt.NUM_OF_CLASS)
     model_loss = lossfunc.cross_entropy(y_,y)
 
     sess = tf.Session()
@@ -45,6 +45,7 @@ def main(argv=None):
     print(modalitylist)
 
     result = np.zeros((DATA_SIZE[1], DATA_SIZE[2]))
+    result_pre = np.zeros((DATA_SIZE[1], DATA_SIZE[2]))
 
     cubelist = os.listdir(os.path.join(opt.dataroot, opt.mode,modalitylist[0]))
     cubelist = natsort.natsorted(cubelist)
@@ -63,8 +64,9 @@ def main(argv=None):
         for i in range(DATA_SIZE[1] // BLOCK_SIZE[1]):
             for j in range(0, DATA_SIZE[2] // BLOCK_SIZE[2]):
                 test_images[0, 0:BLOCK_SIZE[0], 0:BLOCK_SIZE[1], 0:BLOCK_SIZE[2], :] = cube_images[0, :,BLOCK_SIZE[1] * i:BLOCK_SIZE[1] * (i + 1), BLOCK_SIZE[2] * j:BLOCK_SIZE[2] * (j + 1), :]
-                score,result0,piece_loss = sess.run([y_,pred_,model_loss], feed_dict={x: test_images,y: test_annotations})
+                score,result0,piece_loss,sf0 = sess.run([y_,pred_,model_loss,sf], feed_dict={x: test_images,y: test_annotations})
                 result[BLOCK_SIZE[1] * i:BLOCK_SIZE[1] * (i + 1), BLOCK_SIZE[2] * j:BLOCK_SIZE[2] * (j + 1)] = result0[0, 0, :,:] * 255
+                result_pre[BLOCK_SIZE[1] * i:BLOCK_SIZE[1] * (i + 1), BLOCK_SIZE[2] * j:BLOCK_SIZE[2] * (j + 1)] = sf0[0, 0, :,:,1] * 255
                 loss2 += piece_loss
         loss2 = loss2 / (DATA_SIZE[1] // BLOCK_SIZE[1]) / (DATA_SIZE[2] // BLOCK_SIZE[2])
         label = misc.imread(os.path.join(label_path,label_names[kk])) * 255
@@ -78,6 +80,7 @@ def main(argv=None):
 
 
         misc.imsave(os.path.join(test_results,cube+".bmp"), result.astype(np.uint8))
+        misc.imsave(os.path.join(test_results, cube + "_pre.bmp"), result_pre.astype(np.uint8))
     print('')
     print('mean: ','loss -> {:.3f}, acc -> {:.3f}, dice -> {:.3f}'.format(loss_sum/len(label_names),acc_sum/len(label_names),  \
          dice_sum/len(label_names)))
