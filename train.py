@@ -80,7 +80,7 @@ def main(argv=None):
     ##########################################################################
 
     for itr in xrange(o_itr,opt.max_iteration):
-        train_images,train_annotations = train_dataset_reader.read_batch_normal_train()
+        train_images,train_annotations = train_dataset_reader.read_batch_random_train()
         feed_dict_train = {x: train_images, y: train_annotations}
         sess.run(train_op, feed_dict=feed_dict_train)
 
