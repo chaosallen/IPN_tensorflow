@@ -77,8 +77,6 @@ def main(argv=None):
         acc_sum += acc
         dice_sum += dice
 
-
-
         misc.imsave(os.path.join(test_results,cube+".bmp"), result.astype(np.uint8))
         misc.imsave(os.path.join(test_results, cube + "_pre.bmp"), result_pre.astype(np.uint8))
     print('')

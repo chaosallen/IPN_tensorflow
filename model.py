@@ -24,11 +24,8 @@ def IPN(x,PLM_NUM=5,filter_size=[3,3,3],LAYER_NUM=3,NUM_OF_CLASS=2,pooling_size=
     pool =[[0]*LAYER_NUM for i in range(PLM_NUM)]
     variables = []
 
-
     #features = utils.cal_channel_num(PLM_NUM)
-    #features = [64,64,64,64,64]
     features = np.ones(PLM_NUM,dtype='int32')*64
-
     ##################### print model para  #############
     print('')
     print('-----------------  model paras ------------------')
