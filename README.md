@@ -13,9 +13,9 @@ Mingchao Li, Yerui Chen, Shuo Li, Zexuan Ji, Keren Xie, Songtao Yuan, Qiang Chen
 Ubuntu 18.04, Python 3.x, Tensorflow 1.12
 
 # Test the code
-
+```
 python test.py
-
+```
 If success, the result will be find in 'logs/test_result/'.
 
 # Train for your own data
@@ -51,9 +51,9 @@ Place the data as the following structure.(An example in 'dataset/test').
     - val(same as train)
 
 ## Train
-
+```
 python train.py
-
+```
 ## Change Parameters
 
 Parameters are set in 'options/'
@@ -67,9 +67,9 @@ The best model is saved in 'logs/best_model/'
 Other models are saved in 'logs/checkpoints/'
 
 ## Result
-
+```
 python test.py.
-
+```
 The results will be saved in 'logs/test_result'.
 
 Some examples of our results and corresponding OCTA projection maps are in 'logs/other results/'.
