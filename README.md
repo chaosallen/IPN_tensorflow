@@ -4,9 +4,7 @@ This is an implementation of "Image Projection Network: 3D to 2D Image Segmentat
 
 # Paper
 
-Image Projection Network: 3D to 2D Image Segmentation in OCTA Images
-
-Mingchao Li, Yerui Chen, Shuo Li, Zexuan Ji, Keren Xie, Songtao Yuan, Qiang Chen
+Mingchao Li, Yerui Chen, Zexuan Ji, Keren Xie, Songtao Yuan, Qiang Chen, and Shuo Li. "Image Projection Network: 3D to 2D Image Segmentation in OCTA Images," in IEEE Transactions on Medical Imaging, doi: 10.1109/TMI.2020.2992244.
 
 # Requirements
 
