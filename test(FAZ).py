@@ -63,8 +63,8 @@ def main(argv=None):
                 score,result0,piece_loss,sf0 = sess.run([y_,pred_,model_loss,sf], feed_dict={x: test_images,y: test_annotations})
                 result[BLOCK_SIZE[1] * i:BLOCK_SIZE[1] * (i + 1), BLOCK_SIZE[2] * j:BLOCK_SIZE[2] * (j + 1)] = sf0[0, 0, :,:,1] * 255
         for num in range(1,20):
-            nx = int(np.random.normal(DATA_SIZE[1], 50))
-            ny = int(np.random.normal(DATA_SIZE[2], 50))
+            nx = int(np.random.normal(DATA_SIZE[1]/2, 50))
+            ny = int(np.random.normal(DATA_SIZE[2]/2, 50))
             mx = int(BLOCK_SIZE[1]/2)
             my = int(BLOCK_SIZE[2]/2)
             if nx<=BLOCK_SIZE[1]/2 or nx>=DATA_SIZE[1]-mx:
